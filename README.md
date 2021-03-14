@@ -6,3 +6,4 @@ Personal Website
 * impl data from json file
 * dynamic naming of hire me button via data.json (available/colab/unavailable)
 * change resume button to 'download resume' and serve file as a download
+* make specs a for loop and control printing with a config file
