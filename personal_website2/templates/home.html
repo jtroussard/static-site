@@ -9,8 +9,8 @@
       <div class="container">
         <div class="content-center">
           <div class="cc-profile-image"><a href="#"><img src="{{ url_for('static', filename='images/jacques-with-clio-crop-small.jpg') }}" alt="Image"/></a></div>
-          <div class="h2 title">Anthony Barnett</div>
-          <p class="category text-white">Web Developer, Graphic Designer,  Photographer</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+          <div class="h2 title">{{ data.personal['first_name'] }} {{ data.personal['last_name'] }}</div>
+          <p class="category text-white">{{ data.personal['title'] }}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contact Me</a><a class="btn btn-primary" href="{{ url_for('static', filename='files/{resume}'.format(resume=resume)) }}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Resume</a>
         </div>
       </div>
       <div class="section">
@@ -27,97 +27,113 @@
       <div class="row">
         <div class="col-lg-6 col-md-12">
           <div class="card-body">
-            <div class="h4 mt-0 title">About</div>
-            <p>Hello! I am Anthony Barnett. Web Developer, Graphic Designer and Photographer.</p>
-            <p>Creative CV is a HTML resume template for professionals. Built with Bootstrap 4, Now UI Kit and FontAwesome, this modern and responsive design template is perfect to showcase your portfolio, skills and experience. <a href="https://templateflip.com/templates/creative-cv/" target="_blank">Learn More</a></p>
+            <div class="h4 mt-0 title">{{ data.intro_title }}</div>
+            {% if data.intro_text %}
+              <p>{{ data.intro_text | safe }}</p>
+            {% endif %}
+
+            {% if data.intro_text2 %}
+            <p>{{ data.intro_text2 }}</p>
+            {% endif %}
+
+            {% if data.intro_text3 %}
+            <p>{{ data.intro_text3 }}</p>
+            {% endif %}
+
           </div>
         </div>
         <div class="col-lg-6 col-md-12">
           <div class="card-body">
-            <div class="h4 mt-0 title">Basic Information</div>
-            <div class="row">
+            <div class="h4 mt-0 title">Specs</div>
+            
+            {% if data.personal['age'] %}
+            <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
-              <div class="col-sm-8">24</div>
+              <div class="col-sm-8">{{ data.personal['age'] }}</div>
             </div>
+            {% endif %}
+
+            {% if data.personal['email'] %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-              <div class="col-sm-8">anthony@company.com</div>
+              <div class="col-sm-8">{{ data.personal['email'] }}</div>
             </div>
+            {% endif %}
+
+            {% if data.personal['phone'] %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
-              <div class="col-sm-8">+1718-111-0011</div>
+              <div class="col-sm-8">{{ data.personal['phone'] }}</div>
             </div>
+            {% endif %}
+
+            {% if data.personal['address'][0] %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
-              <div class="col-sm-8">140, City Center, New York, U.S.A</div>
+              <div class="col-sm-8">
+                {{ data.personal['address'][0]['city'] }}, 
+                {{ data.personal['address'][0]['state'] }}, 
+                {{ data.personal['address'][0]['country'] }}
+              </div>
             </div>
+            {% endif %}
+
+            {% if data.personal['languages'][0] %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-              <div class="col-sm-8">English, German, French</div>
+              <div class="col-sm-8">
+                {% for language in data.personal['languages'] %}
+                {% if not loop.last %}
+                  {{ language }},
+                {% else %}
+                  {{ language }}
+                {% endif %}
+                {% endfor %}
+                </div>
             </div>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+{% if data.professional_skills[0] %}
 <div class="section" id="skill">
   <div class="container">
     <div class="h4 text-center mb-4 title">Professional Skills</div>
     <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
       <div class="card-body">
-        <div class="row">
+        
+
+        {% for skill in data.professional_skills %}
+        <p>{{ data.professional_skill }}</p>
+          {% if loop.index0 % 2 == 0 %}
+          <div class="row">
+          {% endif %}
+
           <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">HTML</span>
+            <div class="progress-container progress-primary"><span class="progress-badge">{{ skill['skill_name'] }}</span>
               <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" 
+                data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                style="width: {{ skill['skill_level_number'] }}"></div>
+                <span class="progress-value">{{ skill['skill_level_string'] | title }}</span>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">CSS</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-              </div>
-            </div>
+
+          {% if loop.index0 % 2 == 1 %}
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">JavaScript</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">SASS</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Bootstrap</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Photoshop</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
 </div>
+{% endif %}
+
 <div class="section" id="portfolio">
   <div class="container">
     <div class="row">

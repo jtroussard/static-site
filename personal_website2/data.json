@@ -1,1 +1,288 @@
-{}
+{
+    "personal": {
+        "first_name": "Jacques",
+        "middle_name": "Jakov",
+        "last_name": "Troussard",
+        "title": "Software Developer",
+        "email": "developerslifefor.me@gmail.com",
+	"languages": ["English", "French"],
+	"address": [
+		{
+		    "type": "main",
+		    "country": "USA",
+		    "house_number": "45",
+		    "street_name": "Craighead",
+            "street_type": "Street",
+		    "apt_number": "",
+		    "city": "Pittsburgh",
+		    "state": "Pennsylvania",
+		    "zip": {
+		        "zip":"15211",
+			"plus_four": ""
+		    },
+		    "region": "",
+		    "locality": "",
+		    "district": "",
+		    "sub-district": "",
+		    "province": "",
+		    "emirate": "",
+		    "neighborhood": "",
+		    "block_number": "",
+		    "PO_BOX": false,
+		    "military_address": false,
+		    "military_address_type":  "",
+		    "military_address_number": "",
+		    "military_address_po_box_number": "",
+		    "military_post_office_type": "",
+		    "military_state_designator": ""
+		}
+	]
+    },
+    "files": [
+        {
+            "name": "resume",
+            "filename": "resume_jt_current",
+            "extension": "pdf"
+	    },
+        {
+            "name": "static map pittsburgh",
+            "filename": "static_map_pittsburgh",
+            "extension": "jpg"
+        }
+        
+    ],
+    "intro_title": "Hello!",
+    "intro_text": "Clinically diagnosed <strong>Programming Addict!</strong> In love with building all sorts of projects with a variety of technologies. When I am not <strong>developing, testing, or documenting</strong>, you'll probably find me walking my dog, Clio, tinkering in the garage, or in front of a video game.",
+    "intro_text2": "This page is to document and display my progress as a software, website, video game developer. There will be some information on my educational and professional background, as well as a project portfolio gallery and some other fun things that interest me. Feel free to reach out with comments or collaboration.",
+    "intro_text3": "Feel free to reach out with comments or collaboration.",    
+    "education": [
+        { 
+            "name": "University of Mary Washington", 
+            "location_state": "VA", 
+            "location_city": "Fredericksburg",
+            "filename_logo": "logo-umw.jpg",
+            "degrees": [
+                {"degree_type": "Bachelor of Science", "degree_focus": "Computer Science", "degree_gpa": 3.33} 
+            ]
+        },
+        {
+            "name": "Northern Virginia Community College", 
+            "location_state": "VA", 
+            "location_city": "Annandale",
+            "filename_logo": "logo-nova.jpg",
+            "degrees": [
+                {"degree_type": "Associates of Science", "degree_focus": "Social Science", "degree_gpa": 3.38},
+                {"degree_type": "Certificate", "degree_focus": "Buisness Information Technology", "degree_gpa": 3.66} 
+            ]
+        }
+    ],
+    "education_text": "Education is important! While not required to follow the developers path, I found my time at university indispensable and extremely enjoyable. Flip through these cards and see where I've attended.",
+    "experience": [
+        { 
+            "employer_name": "McKesson", 
+            "employer_state": "PA", 
+            "employer_city": "Moon Township",
+            "employer_logo": "logo-mckesson.png",
+            "experience_description": "Java, Swing, Angular development on the MPS application: EnterpriseRx (Hosted Pharmacy Management System)",
+            "experience_start_date": "Dec 2019",
+            "experience_end_date": "Present"
+        },
+        { 
+            "employer_name": "Dollar Bank FSB", 
+            "employer_state": "PA", 
+            "employer_city": "Pittsburgh",
+            "employer_logo": "logo-dollarbank.jpg",
+            "experience_description": "Developed applications which contributed to the solution of business problems or needs of the bank. Tech stack mainly consisted of Mainframe (COBOL, JCL, CICS, IDMS). Participated in various stages of the SDLC: Conducting research, systems analysis, obtaining approvals, presenting requirements, specifications, and development plans to committees, programming, testing, and documenation.",
+            "experience_start_date": "Feb 2018",
+            "experience_end_date": "Nov 2019"
+        },
+        { 
+            "employer_name": "Audi Arlington", 
+            "employer_state": "VA", 
+            "employer_city": "Arlington",
+            "employer_logo": "logo-audi.png",
+            "experience_description": "Reviewed up to 100 warranty claims per day, which required the parsing of technical descriptions and supporting test data from technicians. Worked with several departments to ensure that responsible parties would deliver appropriate documentation for each stage of the repair process, improving turn around time on paid claims.",
+            "experience_start_date": "Mar 2014",
+            "experience_end_date": "Jan 2015"
+        },
+        { 
+            "employer_name": "H.A.T.S. Facilities Management Services", 
+            "employer_state": "United Arab Emirates", 
+            "employer_city": "Dubai",
+            "employer_logo": "logo-hats.png",
+            "experience_description": "Supervised maintenance and restoration projects for hospitality, residential, and industrial properties. Performed site surveys of primary building systems. Primary clients included Ritz-Carlton Dubai Marina and Le Meridian Dubai Hotel. Worked on several projects with teams from diverse cultural, language, and religious backgrounds. (European, South Asian, Middle Eastern)",
+            "experience_start_date": "Oct 2010",
+            "experience_end_date": "Oct 2013"
+        },
+        { 
+            "employer_name": "Mercedes-Benz of Honolulu", 
+            "employer_state": "Hi", 
+            "employer_city": "Honolulu",
+            "employer_logo": "logo-mercedesbenz.png",
+            "experience_description": "Maintained warranty standards across three different islands. Processed claims valued over $20,000. Helped process necessary internal paperwork to maintain an in-house loaner fleet of over 70 vehicles.",
+            "experience_start_date": "Aug 2009",
+            "experience_end_date": "Jun 2010"
+        }
+    ],
+    "links": [
+        {
+            "link_name": "Stack Overflow",
+            "link_title": "Stack Overflow Profile",
+            "link_text": "Discovered during my tenure at university, I've evolved from a full time consumer, to an occasional contributor. In fact my frequent visits and eventual contributions help spur my induction into an open source project.",
+            "link_fa_icon": "fa-stack-overflow",
+            "link_url": "https://stackoverflow.com/users/5094207/tekksparrow?tab=profile"
+        },
+        {
+            "link_name": "Github",
+            "link_title": "Github Repos",
+            "link_text": "Is there any other option when it comes to storing your public code? I'll admit sometimes I'm embarrassed about my aging(read laughably amateurish) projects, but keep them up as a testament to the continual learning process.",
+            "link_fa_icon": "fa-github",
+            "link_url": "https://github.com/jtroussard?tab=repositories"
+        },
+        {
+            "link_name": "Youtube",
+            "link_title": "Youtube",
+            "link_text": "Here you can find a small offering of code walk throughs I created while at University.",
+            "link_fa_icon": "fa-youtube",
+            "link_url:": "https://github.com/jtroussard?tab=repositories"
+        },
+        {
+            "link_name": "Instagram",
+            "link_title": "Instagram",
+            "link_text": "",
+            "link_fa_icon": "fa-instagram",
+            "link_url:": "https://www.instagram.com/tekksparrow/?hl=en"
+        }
+    ],
+    "levels_of_mastery" : [
+        {
+            "name": "exposure",
+            "level": 0
+        },
+        {
+            "name": "beginner",
+            "level": 1
+        },
+        {
+            "name": "intermediate",
+            "level": 2
+        },
+        {
+            "name": "advanced",
+            "level": 3
+        },
+        {
+            "name": "master",
+            "level": 4
+        }
+    ],
+    "professional_skills": [
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "skill_level_years": "1",
+            "skill_years_professional": true,
+            "skill_level_string": "intermediate",
+            "skill_level_number": "70%"
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "skill_level_years": "4",
+            "skill_years_professional": true,
+            "skill_level_string": "advanced",
+            "skill_level_number": "85%"
+        },
+        {
+            "skill_name": "Flask",
+            "skill_type": "Programming Framework",
+            "skill_level_years": "3",
+            "skill_years_professional": false,
+            "skill_level_string": "beginner",
+            "skill_level_number": "65%"
+        },
+        {
+            "skill_name": "Swing",
+            "skill_type": "Programming Library",
+            "skill_level_years": "1",
+            "skill_years_professional": true,
+            "skill_level_string": "beginner",
+            "skill_level_number": "40%"
+        },
+        {
+            "skill_name": "HTML5/CSS",
+            "skill_type": "Markdown Language",
+            "skill_level_years": "3",
+            "skill_years_professional": false,
+            "skill_level_string": "intermediate",
+            "skill_level_number": "75%"
+        },
+        {
+            "skill_name": "Atlassian Suite",
+            "skill_type": "Software",
+            "skill_level_years": "1",
+            "skill_years_professional": true,
+            "skill_level_string": "intermediate",
+            "skill_level_number": "65%"
+        },
+        {
+            "skill_name": "COBOL/JCL/CICS",
+            "skill_type": "Programming Language",
+            "skill_level_years": "2",
+            "skill_years_professional": true,
+            "skill_level_string": "intermediate",
+            "skill_level_number": "65%"
+        },
+        {
+            "skill_name": "PL/SQL",
+            "skill_type": "Database",
+            "skill_level_years": "1",
+            "skill_years_professional": true,
+            "skill_level_string": "beginner",
+            "skill_level_number": "60%"
+        }
+    ],
+    "portfolio": [
+        {
+            "project_type": "",
+            "project_name": "",
+            "is_project_personal": "",
+            "project_description": "",
+            "project_subtitle": "",
+            "project_assets": [
+                {
+                    "asset_type": "",
+                    "asset_name": "",
+                    "asset_filename": "",
+                    "asset_link": "",
+                    "asset_string_content": ""
+                }
+            ]
+        }
+    ],
+    "references": [
+        {
+            "reference_name_first": "",
+            "reference_name_middle": "",
+            "reference_name_last": "",
+            "reference_title": "",
+            "reference_relationship": "",
+            "reference_length": 0,
+            "reference_quote": "",
+            "reference_email": "",
+            "reference_phone": [
+                {
+                    "country_code": "",
+                    "area_code": "",
+                    "exchange_code": "",
+                    "subscriber_code": "",
+                    "extension": ""
+                }
+            ],
+            "reference_picture_filename": ""
+        }
+    ],
+    "website": {
+        "name": "Developers Life for Me"
+    }
+}
