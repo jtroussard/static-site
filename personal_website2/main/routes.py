@@ -11,5 +11,15 @@ with open(data_filename) as file:
 @main.route("/")
 @main.route("/home")
 def home():
+    if data:
+        resume = get_resume_file(data)
+    return render_template("home.html", data=data, resume=resume)
 
-    return render_template("home.html", data=data)
+# Helpers
+def get_resume_file(data):
+    for file in data['files']:
+        if file['name'] == "resume":
+            print(f"{file['filename']}.{file['extension']}")
+            return f"{file['filename']}.{file['extension']}"
+    return "#"
+
