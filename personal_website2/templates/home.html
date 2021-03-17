@@ -5,7 +5,7 @@
 <div class="profile-page">
   <div class="wrapper">
     <div class="page-header page-header-small" filter-color="green">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('static/images/cc-bg-1.jpg');"></div>
+      <div class="page-header-image" data-parallax="true" style="background-image: url('static/images/{{ data['website']['back'] }}');"></div>
       <div class="container">
         <div class="content-center">
           <div class="cc-profile-image"><a href="#"><img src="{{ url_for('static', filename='images/jacques-with-clio-crop-small.jpg') }}" alt="Image"/></a></div>
@@ -280,112 +280,54 @@
 <div class="section" id="experience">
   <div class="container cc-experience">
     <div class="h4 text-center mb-4 title">Work Experience</div>
+    {% for exp in data.experience %}
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-experience-header">
-            <p>March 2016 - Present</p>
-            <div class="h5">CreativeM</div>
+            <p>{{ exp['experience_start_date'] }} - {{ exp['experience_end_date'] }}</p>
+            <div class="h5">{{ exp['employer_name'] }}</div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">Front End Developer</div>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+            <div class="h5">{{ exp['position_title'] }}</div>
+            <p>{{ exp['experience_description'] }}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>April 2014 - March 2016</p>
-            <div class="h5">WebNote</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Web Developer</div>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>April 2013 - February 2014</p>
-            <div class="h5">WEBM</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Intern</div>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+
   </div>
 </div>
 <div class="section">
   <div class="container cc-education">
     <div class="h4 text-center mb-4 title">Education</div>
+    {% for edu in data['education'] %}
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2013 - 2015</p>
-            <div class="h5">Master's Degree</div>
+          <div class="card-body cc-education-header" style="min-height: 190px;">
+            <p>{{ edu['end_year'] }}</p>
+            <div class="h5">{{ edu['type'] }}</div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">Master of Information Technology</div>
-            <p class="category">University of Computer Science</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+            <div class="h5">{{ edu['degrees'][0]['degree_type'] }} - {{ edu['degrees'][0]['degree_focus'] }}</div>
+            <p class="category">{{ edu['name'] }}</p>
+            <p>[ Description/Courses/GPA Coming Soon...]</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2009 - 2013</p>
-            <div class="h5">Bachelor's Degree</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Bachelor of Computer Science</div>
-            <p class="category">University of Computer Science</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2007 - 2009</p>
-            <div class="h5">High School</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Science and Mathematics</div>
-            <p class="category">School of Secondary board</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+
   </div>
 </div>
+
+{#
 <div class="section" id="reference">
   <div class="container cc-reference">
     <div class="h4 mb-4 text-center title">References</div>
@@ -435,6 +377,10 @@
     </div>
   </div>
 </div>
+
+#}
+
+
 <div class="section" id="contact">
   <div class="cc-contact-information" style="background-image: url('static/images/staticmap.png')">
     <div class="container">
@@ -444,6 +390,7 @@
             <div class="card mb-0" data-aos="zoom-in">
               <div class="h4 text-center title">Contact Me</div>
               <div class="row">
+                {#
                 <div class="col-md-6">
                   <div class="card-body">
                     <form action="https://formspree.io/your@email.com" method="POST">
@@ -483,15 +430,18 @@
                       </div>
                     </form>
                   </div>
-                </div>
+                </div> #}
                 <div class="col-md-6">
                   <div class="card-body">
                     <p class="mb-0"><strong>Address </strong></p>
-                    <p class="pb-2">140, City Center, New York, U.S.A</p>
-                    <p class="mb-0"><strong>Phone</strong></p>
-                    <p class="pb-2">+1718-111-0011</p>
+                    <p class="pb-2">                
+                      {{ data.personal['address'][0]['city'] }}, 
+                      {{ data.personal['address'][0]['state'] }}, 
+                      {{ data.personal['address'][0]['country'] }}</p>
+{#                    <p class="mb-0"><strong>Phone</strong></p>
+                    <p class="pb-2">+1718-111-0011</p> #}
                     <p class="mb-0"><strong>Email</strong></p>
-                    <p>anthony@company.com</p>
+                    <p>{{ data.personal['email'] }}</p>
                   </div>
                 </div>
               </div>
