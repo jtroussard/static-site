@@ -242,13 +242,17 @@
             "skill_level_number": "60%"
         }
     ],
-    "portfolio": [
+    "portfolios": [
         {
-            "project_type": "",
-            "project_name": "",
+            "project_type": "GithubRepo",
+            "project_img": "fa-github",
+            "project_color": "",
+            "project_name": "Chocobo Egg Run",
             "is_project_personal": "",
             "project_description": "",
-            "project_subtitle": "",
+            "project_subtitle": "Video Game",
+            "project_main_link": "https://github.com/jtroussard/chocobo-egg-run-game",
+            "project_main_img": "img-port-chocobo.png",
             "project_assets": [
                 {
                     "asset_type": "",
