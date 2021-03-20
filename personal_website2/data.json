@@ -58,6 +58,8 @@
     "education": [
         { 
             "name": "University of Mary Washington", 
+            "type": "University",
+            "end_year": "2017",
             "location_state": "VA", 
             "location_city": "Fredericksburg",
             "filename_logo": "logo-umw.jpg",
@@ -67,6 +69,8 @@
         },
         {
             "name": "Northern Virginia Community College", 
+            "type": "Community College",
+            "end_year": " ",
             "location_state": "VA", 
             "location_city": "Annandale",
             "filename_logo": "logo-nova.jpg",
@@ -83,6 +87,7 @@
             "employer_state": "PA", 
             "employer_city": "Moon Township",
             "employer_logo": "logo-mckesson.png",
+            "position_title": "Software Developer I",
             "experience_description": "Java, Swing, Angular development on the MPS application: EnterpriseRx (Hosted Pharmacy Management System)",
             "experience_start_date": "Dec 2019",
             "experience_end_date": "Present"
@@ -92,6 +97,7 @@
             "employer_state": "PA", 
             "employer_city": "Pittsburgh",
             "employer_logo": "logo-dollarbank.jpg",
+            "position_title": "Programmer Analyst",
             "experience_description": "Developed applications which contributed to the solution of business problems or needs of the bank. Tech stack mainly consisted of Mainframe (COBOL, JCL, CICS, IDMS). Participated in various stages of the SDLC: Conducting research, systems analysis, obtaining approvals, presenting requirements, specifications, and development plans to committees, programming, testing, and documenation.",
             "experience_start_date": "Feb 2018",
             "experience_end_date": "Nov 2019"
@@ -101,6 +107,7 @@
             "employer_state": "VA", 
             "employer_city": "Arlington",
             "employer_logo": "logo-audi.png",
+            "position_title": "Warranty Administrator",
             "experience_description": "Reviewed up to 100 warranty claims per day, which required the parsing of technical descriptions and supporting test data from technicians. Worked with several departments to ensure that responsible parties would deliver appropriate documentation for each stage of the repair process, improving turn around time on paid claims.",
             "experience_start_date": "Mar 2014",
             "experience_end_date": "Jan 2015"
@@ -110,6 +117,7 @@
             "employer_state": "United Arab Emirates", 
             "employer_city": "Dubai",
             "employer_logo": "logo-hats.png",
+            "position_title": "Supervisor",
             "experience_description": "Supervised maintenance and restoration projects for hospitality, residential, and industrial properties. Performed site surveys of primary building systems. Primary clients included Ritz-Carlton Dubai Marina and Le Meridian Dubai Hotel. Worked on several projects with teams from diverse cultural, language, and religious backgrounds. (European, South Asian, Middle Eastern)",
             "experience_start_date": "Oct 2010",
             "experience_end_date": "Oct 2013"
@@ -119,6 +127,7 @@
             "employer_state": "Hi", 
             "employer_city": "Honolulu",
             "employer_logo": "logo-mercedesbenz.png",
+            "position_title": "Warranty Administrator",
             "experience_description": "Maintained warranty standards across three different islands. Processed claims valued over $20,000. Helped process necessary internal paperwork to maintain an in-house loaner fleet of over 70 vehicles.",
             "experience_start_date": "Aug 2009",
             "experience_end_date": "Jun 2010"
@@ -242,13 +251,17 @@
             "skill_level_number": "60%"
         }
     ],
-    "portfolio": [
+    "portfolios": [
         {
-            "project_type": "",
-            "project_name": "",
+            "project_type": "GithubRepo",
+            "project_img": "fa-github",
+            "project_color": "",
+            "project_name": "Chocobo Egg Run",
             "is_project_personal": "",
             "project_description": "",
-            "project_subtitle": "",
+            "project_subtitle": "Video Game",
+            "project_main_link": "https://github.com/jtroussard/chocobo-egg-run-game",
+            "project_main_img": "img-port-chocobo.png",
             "project_assets": [
                 {
                     "asset_type": "",
@@ -283,6 +296,7 @@
         }
     ],
     "website": {
-        "name": "Developers Life for Me"
+        "name": "Developers Life for Me",
+        "back":"back.png"
     }
 }

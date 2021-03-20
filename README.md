@@ -9,3 +9,5 @@ Personal Website
 * change resume button to 'download resume' and serve file as a download
 * make specs a for loop and control printing with a config file
 * add company logo option, blended in color background of card
+* add plugin to generate protfolio from git hub
+* build processor for portfolio data to enable original functionality
