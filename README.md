@@ -11,3 +11,6 @@ Personal Website
 * add company logo option, blended in color background of card
 * add plugin to generate protfolio from git hub
 * build processor for portfolio data to enable original functionality
+* find a way to control what kind of address gets rendered (full/city state/country only etc)
+* normalize the professional skill bars
+
