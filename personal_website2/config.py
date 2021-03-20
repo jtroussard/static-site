@@ -1,6 +1,10 @@
 import os
+import json
+
+with open('/etc/mpws2-config.json') as config_file:
+    config = json.load(config_file)
 
 
 class Config:
     # Application configurations
-    SECRET_KEY = "THIS IS A SUPER SECRET KEY WORD"  # os.environ.get("SECRET_KEY")
+    SECRET_KEY = config.get('SECRET_KEY')
