@@ -13,4 +13,5 @@ Personal Website
 * build processor for portfolio data to enable original functionality
 * find a way to control what kind of address gets rendered (full/city state/country only etc)
 * normalize the professional skill bars
+* move all show checks into either front or backend
 
