@@ -5,84 +5,102 @@
 <div class="profile-page">
   <div class="wrapper">
     <div class="page-header page-header-small" filter-color="green">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('static/images/{{ data['website']['back'] }}');"></div>
+      <div class="page-header-image" data-parallax="true" style="background-image: url('static/images/{{ images.get('background_image') }}');"></div>
       <div class="container">
         <div class="content-center">
           <div class="cc-profile-image"><a href="#"><img src="{{ url_for('static', filename='images/jacques-with-clio-crop-small.jpg') }}" alt="Image"/></a></div>
-          <div class="h2 title">{{ data.personal['first_name'] }} {{ data.personal['last_name'] }}</div>
-          <p class="category text-white">{{ data.personal['title'] }}</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contact Me</a><a class="btn btn-primary" href="{{ url_for('static', filename='files/{resume}'.format(resume=resume)) }}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Resume</a>
+          <div class="h2 title">{{ personal.get('name').get('first') | title }} {{ personal.get('name').get('last') | title}}</div>
+          <p class="category text-white">{{ personal.get('professional_title') | title }}</p>
+          {# TODO need to add a control for the contact/hireme button wd.website.controls.for_hire #}
+          <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contact Me</a><a class="btn btn-primary" href="{{ url_for('static', filename='files/{resume}'.format(resume=resume)) }}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Resume</a>
         </div>
       </div>
+
+      {% if smbc_d | length > 0 %}
       <div class="section">
         <div class="container">
-          <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Facebook"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+          <div class="button-container">
+            {% for key, value in smbc_d.items() %}
+            {% if  value['show'] == true and value['inc_in_button_container'] == true %}
+            <a class="btn btn-default btn-round btn-lg btn-icon" href="{{ value['link'] }}" rel="tooltip" title="Follow me on {{ value['name'] }}"><i class="{{ value['fa-style-prefix'] }} {{ value['fa-name'] }}"></i></a>
+            {% endif %}
+            {% endfor %}
+          </div>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>
+{% if intr_d | length > 0 %}
 <div class="section" id="about">
   <div class="container">
     <div class="card" data-aos="fade-up" data-aos-offset="10">
       <div class="row">
         <div class="col-lg-6 col-md-12">
           <div class="card-body">
-            <div class="h4 mt-0 title">{{ data.intro_title }}</div>
-            {% if data.intro_text %}
-              <p>{{ data.intro_text | safe }}</p>
+            
+            {% if intr_d.get('intro_title').get('show') %}
+            <div class="h4 mt-0 title">
+              {{ intr_d.get('intro_title').get('text') }}
+            </div>
             {% endif %}
 
-            {% if data.intro_text2 %}
-            <p>{{ data.intro_text2 }}</p>
+            {% if intr_d.get('intro_1').get('show') %}
+              <p>{{ intr_d.get('intro_1').get('text') | safe }}</p>
             {% endif %}
 
-            {% if data.intro_text3 %}
-            <p>{{ data.intro_text3 }}</p>
+            {% if intr_d.get('intro_2').get('show') %}
+            <p>{{ intr_d.get('intro_2').get('text') | safe }}</p>
+            {% endif %}
+
+            {% if intr_d.get('intro_3').get('show') %}
+            <p>{{ intr_d.get('intro_3').get('text') | safe }}</p>
             {% endif %}
 
           </div>
         </div>
+
         <div class="col-lg-6 col-md-12">
+          {% if spec_d | length > 0 %}
           <div class="card-body">
             <div class="h4 mt-0 title">Specs</div>
             
-            {% if data.personal['age'] %}
+            {% if spec_d.get('age').get('show') %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
-              <div class="col-sm-8">{{ data.personal['age'] }}</div>
+              <div class="col-sm-8">{{ spec_d.get('age').get('text') }}</div>
             </div>
             {% endif %}
 
-            {% if data.personal['email'] %}
+            {% if spec_d.get('email').get('show') %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-              <div class="col-sm-8">{{ data.personal['email'] }}</div>
+              <div class="col-sm-8">{{ spec_d['email']['text'] }}</div>
             </div>
             {% endif %}
 
-            {% if data.personal['phone'] %}
+            {% if spec_d.get('phone').get('show') %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
-              <div class="col-sm-8">{{ data.personal['phone'] }}</div>
+              <div class="col-sm-8">{{ spec_d.get('phone').get('text') }}</div>
             </div>
             {% endif %}
 
-            {% if data.personal['address'][0] %}
+            {% if spec_d.get('address').get('show') %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
               <div class="col-sm-8">
-                {{ data.personal['address'][0]['city'] }}, 
-                {{ data.personal['address'][0]['state'] }}, 
-                {{ data.personal['address'][0]['country'] }}
+                {{ address }}
               </div>
             </div>
             {% endif %}
 
-            {% if data.personal['languages'][0] %}
+            {% if spec_d.get('languages').get('show') %}
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
               <div class="col-sm-8">
-                {% for language in data.personal['languages'] %}
+                {% for language in spec_d.get('languages').get('list') %}
                 {% if not loop.last %}
                   {{ language }},
                 {% else %}
@@ -93,33 +111,35 @@
             </div>
             {% endif %}
           </div>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
 </div>
+{% endif %}
 
-{% if data.professional_skills[0] %}
+{% if skil_l | length > 0 %}
 <div class="section" id="skill">
   <div class="container">
     <div class="h4 text-center mb-4 title">Professional Skills</div>
     <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
       <div class="card-body">
-        
+        {% for skill in skil_l %}
+        {% if skill.get('show') %}
+        <p></p>
 
-        {% for skill in data.professional_skills %}
-        <p>{{ data.professional_skill }}</p>
-          {% if loop.index0 % 2 == 0 %}
-          <div class="row">
-          {% endif %}
+        {% if loop.index0 % 2 == 0 %}
+        <div class="row">
+        {% endif %}
 
           <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">{{ skill['skill_name'] }}</span>
+            <div class="progress-container progress-primary"><span class="progress-badge">{{ skill.get('name') }}</span>
               <div class="progress">
                 <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" 
                 data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                style="width: {{ skill['skill_level_number'] }}"></div>
-                <span class="progress-value">{{ skill['skill_level_string'] | title }}</span>
+                style="width: {{ skill.get('skill_level_percent') }}"></div>
+                <span class="progress-value">{{ skill.get('skill_level_string') | title }}</span>
               </div>
             </div>
           </div>
@@ -127,6 +147,8 @@
           {% if loop.index0 % 2 == 1 %}
           </div>
           {% endif %}
+
+        {% endif %}
         {% endfor %}
       </div>
     </div>
@@ -134,7 +156,7 @@
 </div>
 {% endif %}
 
-{% if portfolio_data | length > 0 %}
+{% if p_entries | length > 0 %}
 <div class="section" id="portfolio">
   <div class="container">
     <div class="row">
@@ -142,190 +164,75 @@
         <div class="h4 text-center mb-4 title">Portfolio</div>
         <div class="nav-align-center">
           <ul class="nav nav-pills nav-pills-primary" role="tablist">
-            {% for port in portfolio_data %}
-            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#{{ port['project_type'] }}" role="tablist"><i class="fa {{ port['project_img'] }}" aria-hidden="true"></i></a></li>
-            {% endfor %}
+            {{ p_header | safe }}
           </ul>
         </div>
       </div>
     </div>
+
     <div class="tab-content gallery mt-5">
-      <div class="tab-pane active" id="web-development">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a target= "_blank" href="{{ data['portfolios'][0]['project_main_link'] }}">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/' + data['portfolios'][0]['project_main_img']) }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">{{ data['portfolios'][0]['project_name'] }}</div>
-                      <p>{{ data['portfolios'][0]['project_subtitle'] }}</p>
-                    </figcaption>
-                  </figure></a></div>
-                  {#
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/project-2.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Startup Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>#}
-            </div>
-
-            {#
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/project-3.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Food Order Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/project-4.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Web Advertising Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            #}
-
-          </div>
-        </div>
-      </div>
-
-      {#
-      <div class="tab-pane" id="graphic-design" role="tabpanel">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/graphic-design-1.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Triangle Pattern</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/graphic-design-2.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Abstract Umbrella</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/graphic-design-3.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Cube Surface Texture</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/graphic-design-4.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Abstract Line</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="Photography" role="tabpanel">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/photography-1.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/photography-3.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Wedding Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/photography-2.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Beach Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="{{ url_for('static', filename='images/photography-4.jpg') }}" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Nature Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      #}
+      {{ p_tabs | safe }}
     </div>
   </div>
 </div>
 {% endif %}
 
+{% if expr_l | length > 0 %}
 <div class="section" id="experience">
   <div class="container cc-experience">
     <div class="h4 text-center mb-4 title">Work Experience</div>
-    {% for exp in data.experience %}
+    {% for exp in expr_l %}
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-experience-header">
-            <p>{{ exp['experience_start_date'] }} - {{ exp['experience_end_date'] }}</p>
-            <div class="h5">{{ exp['employer_name'] }}</div>
+            <p>{{ exp.get('experience_start_date') }} - {{ exp.get('experience_end_date') }}</p>
+            <div class="h5">{{ exp.get('employer_name') }}</div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">{{ exp['position_title'] }}</div>
-            <p>{{ exp['experience_description'] }}</p>
+            <div class="h5">{{ exp.get('position_title') }}</div>
+            <p>{{ exp.get('experience_description') }}</p>
           </div>
         </div>
       </div>
     </div>
     {% endfor %}
-
   </div>
 </div>
+{% endif %}
+
+{% if educ_l | length > 0 %}
 <div class="section">
   <div class="container cc-education">
     <div class="h4 text-center mb-4 title">Education</div>
-    {% for edu in data['education'] %}
+
+    {% for edu in educ_l %}
+    {% if edu.get('show') %}
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-education-header" style="min-height: 190px;">
-            <p>{{ edu['end_year'] }}</p>
-            <div class="h5">{{ edu['type'] }}</div>
+            <p>{{ edu.get('end_year') }}</p>
+            <div class="h5">{{ edu.get('type') }}</div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">{{ edu['degrees'][0]['degree_type'] }} - {{ edu['degrees'][0]['degree_focus'] }}</div>
-            <p class="category">{{ edu['name'] }}</p>
+            <div class="h5">{{ edu.get('degrees')[0].get('degree_type') }} - {{ edu.get('degrees')[0].get('degree_focus') }}</div>
+            <p class="category">{{ edu.get('name') }}</p>
             <p>[ Description/Courses/GPA Coming Soon...]</p>
           </div>
         </div>
       </div>
     </div>
+    {% endif %}
     {% endfor %}
 
   </div>
 </div>
+{% endif %}
 
 {#
 <div class="section" id="reference">
@@ -433,17 +340,26 @@
                 </div> #}
                 <div class="col-md-6">
                   <div class="card-body">
-                    <p class="mb-0"><strong>Address </strong></p>
+                  
+                  {% if data['sections']['specifications']['address']['show'] %}
+                    <p class="mb-0"><strong>Address</strong></p>
                     <p class="pb-2">                
-                      {{ data.personal['address'][0]['city'] }}, 
-                      {{ data.personal['address'][0]['state'] }}, 
-                      {{ data.personal['address'][0]['country'] }}</p>
-{#                    <p class="mb-0"><strong>Phone</strong></p>
-                    <p class="pb-2">+1718-111-0011</p> #}
+                      {{ address }}
+                    </p>
+                  {% endif %}
+
+                  {% if spec_d.get('phone').get('show') %}
+                    <p class="mb-0"><strong>Phone</strong></p>
+                    <p class="pb-2">{{ spec_d.get('phone').get('text') }}</p>
+                  {% endif %}
+
+                  {% if spec_d.get('email').get('show') %}
                     <p class="mb-0"><strong>Email</strong></p>
-                    <p>{{ data.personal['email'] }}</p>
+                    <p>{{ spec_d.get('email').get('text') }}</p>
+                  {% endif %}
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
