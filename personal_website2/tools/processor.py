@@ -13,7 +13,7 @@ class Processor:
                 {
                     "name": port_data[port_type]["name"],
                     "fa_code": f"{port_data[port_type]['fa-style-prefix']}{port_data[port_type]['fa-name']}",
-                    "href": port_data[port_type]["href"]
+                    "href": port_data[port_type]["href"],
                 }
             )
         return processed
@@ -28,6 +28,6 @@ class Processor:
                 {
                     "name": port_data[port_type]["name"],
                     "fa_code": f"{port_data[port_type]['fa-style-prefix']}{port_data[port_type]['fa-name']}",
-                    "href": port_data[port_type]["href"]
+                    "href": port_data[port_type]["href"],
                 }
             )

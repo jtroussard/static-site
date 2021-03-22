@@ -16,4 +16,4 @@ else:
 
 class Config:
     # Application configurations
-    SECRET_KEY = config.get('SECRET_KEY')
+    SECRET_KEY = config.get("SECRET_KEY")
