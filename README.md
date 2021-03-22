@@ -20,3 +20,5 @@ Personal Website
 * determine where the locations 'theme' color is set - abstract and create config value for color
 * look into buying full license for template
 * dynamically build navigation bar
+* add gcp stuff
+* config value for website title

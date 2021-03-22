@@ -10,7 +10,9 @@ if platform.system().lower() == "windows":
     with open(win_path) as config_file:
         config = json.load(config_file)
 else:
-    with open(file) as config_file:
+    linux_dir = "/etc/"
+    linux_path = os.path.join(linux_dir, file)
+    with open(linux_path) as config_file:
         config = json.load(config_file)
 
 
