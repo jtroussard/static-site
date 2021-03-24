@@ -435,7 +435,10 @@
         }
     },
     "website": {
-        "name": "Developer's Life For Me",
+        "strings": {
+            "name": "Developer's Life For Me",
+            "title": "DevLife"
+        },
         "controls": {
             "for_hire": false,
             "limits": {

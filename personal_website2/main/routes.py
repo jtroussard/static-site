@@ -12,6 +12,8 @@ with open(data_filename) as file:
 @main.route("/")
 @main.route("/home")
 def home():
+    route_display_name = "Home"
+
     if data:
         # fetch assests
         resume = get_resume_file(data)
@@ -21,6 +23,7 @@ def home():
 
         # get website configuration settings
         website = data.get("website")
+        strings = website.get("strings")
         ctrls = website.get("controls")
         images = website.get("images")
 
@@ -43,6 +46,7 @@ def home():
     return render_template(
         "home.html",
         data=data,
+        route_display_name=route_display_name,
         resume=resume,
         address=address,
         website=website,
@@ -57,6 +61,7 @@ def home():
         p_entries=p_entries,
         p_header=p_header,
         p_tabs=p_tabs,
+        strings=strings,
     )
 
 
