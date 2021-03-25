@@ -13,15 +13,16 @@
     <meta name="twitter:description" content="Just a little resume/portfolio page I use as the subject of many of my app development experiements. Built using python and the Flask micro-framework. The site documents my professional and personal experiences as well as (WIP) showcasing some interactive projects.">
     <meta name="twitter:image" content="{{ url_for('static', filename='images/twittercard-personal-website2.jpg') }}">
 
-
     <title>
       {% if strings.get("title") %}
       {{ strings.get("title") }} - 
       {% endif %}
       {{ route_display_name }}
     </title>
+    
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/aos.css') }}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
@@ -105,7 +106,10 @@
       <script src="{{ url_for('static', filename='js/core/popper.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/now-ui-kit.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/aos.js') }}"></script>
       <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
     </body>
   </html>
