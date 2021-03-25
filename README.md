@@ -1,6 +1,7 @@
 # Future Features
 
 # Backlog
+* ui idea - line up buttons 'use linkedin to source data, etc...' with confirmation icon
 * atomize data passed to templates to be a 2nd level dict as represented by the data file
 * dynamic naming of hire me button via data.json (available/colab/unavailable)
 * change resume button to 'download resume' and serve file as a download
