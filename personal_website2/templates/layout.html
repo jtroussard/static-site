@@ -82,9 +82,15 @@
     </header>
     {% block content %}{% endblock content %}
     <footer class="footer">
-      {#
-        <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-        #}
+      <div class="container text-center">
+      {% if smbc_d | length > 0 %}
+      {% for key, value in smbc_d.items() %}
+      {% if  value['show'] == true and value['inc_in_button_container'] == true %}
+      <a class="cc-facebook btn btn-link" href="{{ value['link'] }}"><i class="{{ value['fa-style-prefix'] }} {{ value['fa-name'] }} fa-2x" aria-hidden="true"></i></a>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+      </div>
         <div class="h4 title text-center">
           BY THE WAY...
         </div>
