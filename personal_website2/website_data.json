@@ -423,7 +423,7 @@
                     "city": "Fredericksburg",
                     "filename_logo": "logo-umw.jpg",
                     "degrees": [
-                        {"degree_type": "Bachelor of Science", "degree_focus": "Computer Science", "degree_gpa": 3.33, "show_gpa": false} 
+                        {"degree_type": "Bachelor of Science", "degree_focus": "Computer Science", "degree_gpa": 3.33, "show_gpa": true} 
                     ]
                 },
                 {
@@ -435,7 +435,7 @@
                     "city": "Annandale",
                     "filename_logo": "logo-nova.jpg",
                     "degrees": [
-                        {"degree_type": "Associates of Science", "degree_focus": "Social Science", "degree_gpa": 3.38, "show_gpa": false},
+                        {"degree_type": "Associates of Science", "degree_focus": "Social Science", "degree_gpa": 3.38, "show_gpa": true},
                         {"degree_type": "Certificate", "degree_focus": "Buisness Information Technology", "degree_gpa": 3.66, "show_gpa": true} 
                     ]
                 }
