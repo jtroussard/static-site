@@ -214,15 +214,27 @@
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-education-header" style="min-height: 190px;">
-            <p>{{ edu.get('end_year') }}</p>
-            <div class="h5">{{ edu.get('type') }}</div>
+            <div class="h5">Graduated {{ edu.get('end_year') }}</div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">{{ edu.get('degrees')[0].get('degree_type') }} - {{ edu.get('degrees')[0].get('degree_focus') }}</div>
-            <p class="category">{{ edu.get('name') }}</p>
-            <p>[ Description/Courses/GPA Coming Soon...]</p>
+            <div class="h5">{{ edu.get('name') }}
+            </div>
+            <p class="category">{{ edu.get('city') }}, {{ edu.get('state') }}</p>
+            {% for degree in edu.get('degrees') %}
+            <p class="category cc-education-degree">
+              {% if not degree.get('degree_type') == "Certificate" %}
+              <i class="fas fa-university"></i>
+              {% else %}
+              <i class="fas fa-certificate"></i>
+              {% endif %}
+              {{ degree.get('degree_type') }} - {{ degree.get('degree_focus') }}
+              {% if degree.get('show_gpa') %}
+              - {{ degree.get("degree_gpa") }}
+              {% endif %}
+            </p>
+            {% endfor %}
           </div>
         </div>
       </div>

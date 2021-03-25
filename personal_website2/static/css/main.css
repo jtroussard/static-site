@@ -2271,7 +2271,7 @@ p {
 
 .category {
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
   color: #9A9A9A; }
 
 .text-primary {
@@ -5205,7 +5205,7 @@ Created using IcoMoon - icomoon.io
 
 /* Experience Style */
 .cc-experience .cc-experience-header {
-  padding-top: 60px;
+  padding-top: 50px;
   padding-right: 0;
   text-align: center;
   color: #fff;
@@ -5216,10 +5216,16 @@ Created using IcoMoon - icomoon.io
   margin-bottom: 0; }
 
 .cc-education .cc-education-header {
-  padding-top: 60px;
+  padding-top: 50px;
   padding-right: 0;
   text-align: center;
   color: #fff; }
+
+.cc-education-degree {
+  padding-bottom: 12px;
+  color: black;
+  font-weight: 600;
+}
 
 /* References Style */
 .cc-reference .card {
