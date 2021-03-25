@@ -1,24 +1,27 @@
 # Future Features
+* Abstract data file
+* Add static site generator - initially driven by forms
+  * authenticate linkedin for data
+  * authenticate with github for portfolio
+* Blend company log into experience cards
+* Generate footer map image from data/address
+* Add abbrev feature for addresses
+* Control color with data file
+* Automatic favico generation and regeneration on color theme change
+* Let people know you are for hire or just colab via data file
 
 # Backlog
-* ui idea - line up buttons 'use linkedin to source data, etc...' with confirmation icon
+* pytest
 * **WIP** atomize data passed to templates to be a 2nd level dict as represented by the data file
-* dynamic naming of hire me button via data.json (available/colab/unavailable)
 * change resume button to 'download resume' and serve file as a download
-* add company logo option, blended in color background of card
-* add plugin to generate portfolio from git hub
 * normalize the professional skill bars
-* add config value to generate map image on bottom of screen/ default local - use address data
-* abbriv config value and impl (United States -> US)
-* determine where the locations 'theme' color is set - abstract and create config value for color
-* look into buying full license for template
-* add google analytics stuff
+* look into value for buying full license for template
 * impl sphinx doc stuff
 * learn CI/CD and trigger, build/redeployment - (probably has to be done inside GCP)
 * standardize/normalize portfolio pictures
 * find a way that on commit - trigger a git history check and autmatically squash README.md commits
-* automatic favico generation
 * normalize data key names
+* tool tip for portfolio
 
 # Personal Dev Notes
 
@@ -34,3 +37,4 @@
 * ~~dynamically build navigation bar~~
 * ~~finish education cards~~
 * ~~add config controls for showing degree gpa's~~
+* ~~add google analytics stuff~~
