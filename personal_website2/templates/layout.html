@@ -45,18 +45,34 @@
             <div class="navbar-translate">
                 <a class="navbar-brand" href="#" rel="tooltip">
                 {% if data %}
-                    {{ website.get('name') | upper }}
+                    {{ strings.get('name') | upper }}
                 {% endif %}
                 </a>
               <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation">
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
+                {% if data.get("sections").get("introduction").get("show") and data.get("sections").get("introduction").get("navbar") %}
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">{{ data.get("sections").get("introduction").get("navbar_name") | upper }}</a></li>
+                {% endif %}
+                {% if data.get("sections").get("professional_skills").get("show") and data.get("sections").get("professional_skills").get("navbar")%}
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
+                {% endif %}
+                {% if data.get("sections").get("portfolios").get("show") and data.get("sections").get("portfolios").get("navbar")%}
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
+                {% endif %}
+                {% if data.get("sections").get("experience").get("show") and data.get("sections").get("experience").get("navbar")%}
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
+                {% endif %}
+                {% if data.get("sections").get("education").get("show") and data.get("sections").get("education").get("navbar")%}
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Education</a></li>
+                {% endif %}
+                {% if data.get("sections").get("references").get("show") and data.get("sections").get("references").get("navbar")%}
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#references">References</a></li>
+                {% endif %}
+                {% if data.get("sections").get("contact").get("show") and data.get("sections").get("contact").get("navbar")%}
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
+                {% endif %}
               </ul>
             </div>
           </div>

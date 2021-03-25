@@ -4,7 +4,9 @@
     },
     "sections": {
         "introduction": {
-            "show": true, 
+            "show": true,
+            "navbar": true, 
+            "navbar_name": "about",
             "intro_title" : {
                 "show": true,
                 "text": "Hello!"
@@ -24,6 +26,8 @@
         },
         "social_media": {
             "show": true,
+            "navbar": false, 
+            "navbar_name": "",
             "twitter": {
                 "show": true,
                 "inc_in_button_container": true,
@@ -60,6 +64,8 @@
         },
         "specifications": {
             "show": true,
+            "navbar": false, 
+            "navbar_name": "",
             "age": {
                 "show": false,
                 "text": "9999"
@@ -93,6 +99,8 @@
         },
         "professional_skills": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "skills",            
             "entries": [
                 {
                     "show": true,
@@ -228,6 +236,8 @@
         },
         "portfolios": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "portfolio",            
             "entries": [
                 {
                     "show": true,
@@ -339,6 +349,8 @@
         },
         "experience": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "experienece",            
             "entries": [
                 { 
                     "show": true,
@@ -399,6 +411,8 @@
         },
         "education": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "education",            
             "entries": [
                 { 
                     "show": true,
@@ -428,10 +442,17 @@
             ]
         },
         "references": {
-            "show": true,
+            "show": false,
+            "navbar": false, 
+            "navbar_name": "",
             "entries": [
                 
             ]
+        },
+        "contact": {
+            "show": true,
+            "navbar": true,
+            "navbar_name": "contact"
         }
     },
     "website": {
