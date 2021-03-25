@@ -4,7 +4,9 @@
     },
     "sections": {
         "introduction": {
-            "show": true, 
+            "show": true,
+            "navbar": true, 
+            "navbar_name": "about",
             "intro_title" : {
                 "show": true,
                 "text": "Hello!"
@@ -24,6 +26,8 @@
         },
         "social_media": {
             "show": true,
+            "navbar": false, 
+            "navbar_name": "",
             "twitter": {
                 "show": true,
                 "inc_in_button_container": true,
@@ -60,6 +64,8 @@
         },
         "specifications": {
             "show": true,
+            "navbar": false, 
+            "navbar_name": "",
             "age": {
                 "show": false,
                 "text": "9999"
@@ -93,6 +99,8 @@
         },
         "professional_skills": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "skills",            
             "entries": [
                 {
                     "show": true,
@@ -228,6 +236,8 @@
         },
         "portfolios": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "portfolio",            
             "entries": [
                 {
                     "show": true,
@@ -339,6 +349,8 @@
         },
         "experience": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "experienece",            
             "entries": [
                 { 
                     "show": true,
@@ -399,43 +411,55 @@
         },
         "education": {
             "show": true,
+            "navbar": true, 
+            "navbar_name": "education",            
             "entries": [
                 { 
                     "show": true,
                     "name": "University of Mary Washington", 
                     "type": "University",
                     "end_year": "2017",
-                    "location_state": "VA", 
-                    "location_city": "Fredericksburg",
+                    "state": "VA", 
+                    "city": "Fredericksburg",
                     "filename_logo": "logo-umw.jpg",
                     "degrees": [
-                        {"degree_type": "Bachelor of Science", "degree_focus": "Computer Science", "degree_gpa": 3.33} 
+                        {"degree_type": "Bachelor of Science", "degree_focus": "Computer Science", "degree_gpa": 3.33, "show_gpa": true} 
                     ]
                 },
                 {
                     "show": true,
                     "name": "Northern Virginia Community College", 
                     "type": "Community College",
-                    "end_year": " ",
-                    "location_state": "VA", 
-                    "location_city": "Annandale",
+                    "end_year": "2016",
+                    "state": "VA", 
+                    "city": "Annandale",
                     "filename_logo": "logo-nova.jpg",
                     "degrees": [
-                        {"degree_type": "Associates of Science", "degree_focus": "Social Science", "degree_gpa": 3.38},
-                        {"degree_type": "Certificate", "degree_focus": "Buisness Information Technology", "degree_gpa": 3.66} 
+                        {"degree_type": "Associates of Science", "degree_focus": "Social Science", "degree_gpa": 3.38, "show_gpa": true},
+                        {"degree_type": "Certificate", "degree_focus": "Buisness Information Technology", "degree_gpa": 3.66, "show_gpa": true} 
                     ]
                 }
             ]
         },
         "references": {
-            "show": true,
+            "show": false,
+            "navbar": false, 
+            "navbar_name": "",
             "entries": [
                 
             ]
+        },
+        "contact": {
+            "show": true,
+            "navbar": true,
+            "navbar_name": "contact"
         }
     },
     "website": {
-        "name": "Developer's Life For Me",
+        "strings": {
+            "name": "Developer's Life For Me",
+            "title": "DevLife"
+        },
         "controls": {
             "for_hire": false,
             "limits": {
