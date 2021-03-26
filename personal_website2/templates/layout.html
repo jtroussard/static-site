@@ -28,8 +28,8 @@
     
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
     <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" rel="stylesheet">
-    
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
 
@@ -117,14 +117,9 @@
           <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
         </div>
       </footer>
-
-      {# Bootstrap Script CDN's #}
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-
-      {# Local Scripts #}
+      <script src="{{ url_for('static', filename='js/core/jquery.3.2.1.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/core/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/now-ui-kit.js') }}"></script>
       <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
