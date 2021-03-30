@@ -9,6 +9,9 @@
 * Control color with data file
 * Automatic favico generation and regeneration on color theme change
 * Let people know you are for hire or just colab via data file
+* Add No Fluff Just Stuff or workshop attendence record
+  * NFJS Java 2021: What's New in Java Deep Dive
+  * NFJS Machine Learning Platforms
 
 # Backlog
 * pytest
