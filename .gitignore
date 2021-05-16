@@ -1,3 +1,6 @@
+# Personal Website 2 excludes
+scratch.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
